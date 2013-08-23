@@ -1,0 +1,4 @@
+application:
+  bundles:
+    front:  "MyProject\\FrontBundle"
+    admin:  "Scabbia\\PanelBundle"

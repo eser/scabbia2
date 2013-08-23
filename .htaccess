@@ -1,0 +1,21 @@
+DirectoryIndex index.php
+AddDefaultCharset UTF-8
+AddCharset utf-8 .css .js
+Options +FollowSymLinks -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+	# Keep people out of framework directories
+	RedirectMatch 403 ^/(application|src).*$
+
+	# Keep people out of scc data
+	RewriteRule (^\.|/\.|^web.config|/web.config) - [NC,F]
+
+	# Send request via index.php (again, not if its a real file or folder)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+
+    # Rewrite the rest
+	RewriteRule ^(.*)$ index.php?$1 [QSA,L,PT,NE]
+</IfModule>
