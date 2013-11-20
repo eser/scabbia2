@@ -24,13 +24,13 @@ php bin/scabbia upgrade
 On *nix:
 ``` bash
 php -r "eval('?>'.file_get_contents('https://getcomposer.org/installer'));"
-php composer.phar create-project scabbiafw/scabbia2-skel -s dev
+php composer.phar create-project scabbiafw/scabbia2-skel -s dev project
 ```
 
 On Windows:
 Download and install [Composer-Setup.exe](http://getcomposer.org/Composer-Setup.exe) then run:
 ``` bat
-composer create-project scabbiafw/scabbia2-skel -s dev
+composer create-project scabbiafw/scabbia2-skel -s dev project
 ```
 
 
