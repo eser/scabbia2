@@ -1,2 +1,6 @@
 #!/usr/bin/env php
 <?php
+
+if (PHP_SAPI !== 'cli') {
+    throw new RuntimeException('scabbia only runs under Command Line Interface (CLI).');
+}

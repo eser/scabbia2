@@ -1,0 +1,14 @@
+namespaces:
+  App: {app}/src
+
+environments:
+  http: "Scabbia\\Environments\\Http"
+  cli:  "Scabbia\\Environments\\Cli"
+
+applications:
+  default:
+    tests:
+      - ["{hostname}", "(a-z).scabbiafw.com|scabbiafw.com"]
+    modules:
+      front:  "App\\FrontModule"
+      admin:  "Scabbia\\Modules\\PanelModule"
