@@ -17,5 +17,5 @@ use Scabbia\Framework\Framework;
 // it's only initializes framework with the spl autoloader.
 Framework::load($loader);
 
-// read applications.yml and cache its output into cache/applications.yml.php
-Framework::runApplicationConfig('applications.yml');
+// read project.yml and cache its output into cache/project.yml.php
+Framework::runProjectConfig('project.yml');

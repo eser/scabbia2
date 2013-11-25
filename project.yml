@@ -2,11 +2,13 @@ default:
     development:   true
     disableCaches: false
 
+    type: "Scabbia\\Mvc\\MvcApplication"
+
     tests:
         - ["{hostname}", "(a-z).scabbiafw.com|scabbiafw.com"]
 
-    namespaces:
-        App: "{app}"
+    # namespaces:
+    #     App: "{app}"
 
     environments:
         http: "Scabbia\\Environments\\Http"
