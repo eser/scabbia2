@@ -8,7 +8,7 @@ Installation
 ------------
 ##### Alternative 1: Zip Package #####
 
-Download [Skeleton Application](https://github.com/scabbiafw/scabbia2-skel/archive/master.zip) and launch `php bin/scabbia upgrade`.
+Download [Skeleton Application](https://github.com/scabbiafw/scabbia2-skel/archive/master.zip) and launch `php scabbia upgrade`.
 
 ##### Alternative 2: Git #####
 
@@ -16,7 +16,7 @@ On Terminal or Command Prompt:
 ``` bash
 git clone https://github.com/scabbiafw/scabbia2-skel project
 cd project
-php bin/scabbia upgrade
+php scabbia upgrade
 ```
 
 ##### Alternative 3: Composer #####
@@ -37,7 +37,7 @@ composer create-project scabbiafw/scabbia2-skel -s dev project
 Update
 ------
 ``` bash
-php bin/scabbia upgrade
+php scabbia upgrade
 ```
 
 

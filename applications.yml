@@ -1,14 +1,17 @@
-namespaces:
-  App: {app}/src
+default:
+    development:   true
+    disableCaches: false
 
-environments:
-  http: "Scabbia\\Environments\\Http"
-  cli:  "Scabbia\\Environments\\Cli"
-
-applications:
-  default:
     tests:
-      - ["{hostname}", "(a-z).scabbiafw.com|scabbiafw.com"]
+        - ["{hostname}", "(a-z).scabbiafw.com|scabbiafw.com"]
+
+    namespaces:
+        App: "{app}"
+
+    environments:
+        http: "Scabbia\\Environments\\Http"
+        cli:  "Scabbia\\Environments\\Cli"
+
     modules:
-      front:  "App\\FrontModule"
-      admin:  "Scabbia\\Modules\\PanelModule"
+        front:  "App\\FrontModule"
+        admin:  "Scabbia\\Modules\\PanelModule"
