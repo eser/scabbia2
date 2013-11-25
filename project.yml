@@ -8,12 +8,15 @@ default:
         - ["{hostname}", "(a-z).scabbiafw.com|scabbiafw.com"]
 
     # namespaces:
-    #     App: "{app}"
+    #     MyProject: "{base}/src"
+
+    # autoexec:
+    #     - "MyProject\\Project::autoexec"
 
     environments:
         http: "Scabbia\\Environments\\Http"
         cli:  "Scabbia\\Environments\\Cli"
 
     modules:
-        front:  "App\\FrontModule"
+        front:  "MyProject\\FrontModule"
         admin:  "Scabbia\\Modules\\PanelModule"
