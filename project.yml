@@ -5,7 +5,8 @@ default:
     type: "Scabbia\\Mvc\\MvcApplication"
 
     tests:
-        - ["{hostname}", "(a-z).scabbiafw.com|scabbiafw.com"]
+        # - ["{host}", "/(a-z).scabbiafw.com|scabbiafw.com/"]
+        - ["{os}", "/win.*/"]
 
     # namespaces:
     #     MyProject: "{base}/src"

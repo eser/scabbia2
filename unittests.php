@@ -23,10 +23,17 @@ if (defined('SCABBIA2_PATH') && SCABBIA2_PATH !== false) {
     $composerAutoloader->set('Scabbia', $scabbia2Path);
 }
 
-use Scabbia\Framework\Core;
+use Scabbia\Tests\Tests;
 
-// it's only initializes framework with the spl autoloader.
-Core::init($composerAutoloader);
+$tTestClasses = [
+    "Scabbia\\Yaml\\Tests\\ParserTest",
+    "Scabbia\\Yaml\\Tests\\InlineTest"
+];
 
-// read project.yml and cache its output into cache/project.yml.php
-Core::loadProject('project.yml');
+Tests::coverageStart();
+$tExitCode = Tests::runUnitTests($tTestClasses);
+$tCoverageReport = Tests::coverageStop();
+
+echo "Code Coverage = ", round($tCoverageReport["total"]["percentage"], 2), "%";
+
+exit($tExitCode);
