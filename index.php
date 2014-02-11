@@ -17,11 +17,11 @@ if (!file_exists($composerAutoloaderPath = __DIR__ . '/vendor/autoload.php')) {
 
 $composerAutoloader = require($composerAutoloaderPath);
 
-if (defined('SCABBIA2_PATH') && SCABBIA2_PATH !== false) {
-    $composerAutoloader->set('Scabbia', SCABBIA2_PATH);
-} elseif (file_exists($scabbia2Path = __DIR__ . '/../scabbia2-dev/src')) {
-    $composerAutoloader->set('Scabbia', $scabbia2Path);
-}
+// if (defined('SCABBIA2_PATH') && SCABBIA2_PATH !== false) {
+//     $composerAutoloader->set('Scabbia', SCABBIA2_PATH);
+// } elseif (file_exists($scabbia2Path = __DIR__ . '/../scabbia2-dev/src')) {
+//     $composerAutoloader->set('Scabbia', $scabbia2Path);
+// }
 
 use Scabbia\Framework\Core;
 

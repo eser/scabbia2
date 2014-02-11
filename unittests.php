@@ -17,22 +17,22 @@ if (!file_exists($composerAutoloaderPath = __DIR__ . '/vendor/autoload.php')) {
 
 $composerAutoloader = require($composerAutoloaderPath);
 
-if (defined('SCABBIA2_PATH') && SCABBIA2_PATH !== false) {
-    $composerAutoloader->set('Scabbia', SCABBIA2_PATH);
-} elseif (file_exists($scabbia2Path = __DIR__ . '/../scabbia2-dev/src')) {
-    $composerAutoloader->set('Scabbia', $scabbia2Path);
-}
+// if (defined('SCABBIA2_PATH') && SCABBIA2_PATH !== false) {
+//     $composerAutoloader->set('Scabbia', SCABBIA2_PATH);
+// } elseif (file_exists($scabbia2Path = __DIR__ . '/../scabbia2-dev/src')) {
+//     $composerAutoloader->set('Scabbia', $scabbia2Path);
+// }
 
-use Scabbia\Tests\Tests;
+use Scabbia\Testing\Testing;
 
 $tTestClasses = [
-    "Scabbia\\Yaml\\Tests\\ParserTest",
-    "Scabbia\\Yaml\\Tests\\InlineTest"
+    "Scabbia\\Tests\\Yaml\\ParserTest",
+    "Scabbia\\Tests\\Yaml\\InlineTest"
 ];
 
-Tests::coverageStart();
-$tExitCode = Tests::runUnitTests($tTestClasses);
-$tCoverageReport = Tests::coverageStop();
+Testing::coverageStart();
+$tExitCode = Testing::runUnitTests($tTestClasses);
+$tCoverageReport = Testing::coverageStop();
 
 echo "Code Coverage = ", round($tCoverageReport["total"]["percentage"], 2), "%";
 
