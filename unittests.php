@@ -11,17 +11,19 @@
  * @license     http://www.apache.org/licenses/LICENSE-2.0 - Apache License, Version 2.0
  */
 
-if (!file_exists($composerAutoloaderPath = __DIR__ . '/vendor/autoload.php')) {
-    throw new RuntimeException('Unable to load Composer which is required for Scabbia2. Run `php scabbia upgrade`.');
+if (!file_exists($composerAutoloaderPath = __DIR__ . "/vendor/autoload.php")) {
+    throw new RuntimeException("Unable to load Composer which is required for Scabbia2. Run `php scabbia upgrade`.");
 }
 
 $composerAutoloader = require($composerAutoloaderPath);
 
-// if (defined('SCABBIA2_PATH') && SCABBIA2_PATH !== false) {
-//     $composerAutoloader->set('Scabbia', SCABBIA2_PATH);
-// } elseif (file_exists($scabbia2Path = __DIR__ . '/../scabbia2-dev/src')) {
-//     $composerAutoloader->set('Scabbia', $scabbia2Path);
-// }
+if (defined("SCABBIA2_PATH") && SCABBIA2_PATH !== false) {
+    $composerAutoloader->setPsr4("Scabbia\\", SCABBIA2_PATH . "/src/");
+    $composerAutoloader->setPsr4("Scabbia\\Tests\\", SCABBIA2_PATH . "/tests/");
+} elseif (file_exists($scabbia2Path = __DIR__ . "/../scabbia2-dev")) {
+    $composerAutoloader->setPsr4("Scabbia\\", $scabbia2Path . "/src/");
+    $composerAutoloader->setPsr4("Scabbia\\Tests\\", $scabbia2Path . "/tests/");
+}
 
 use Scabbia\Testing\Testing;
 
