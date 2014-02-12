@@ -8,8 +8,8 @@ default:
         # - ["{host}", "/(a-z).scabbiafw.com|scabbiafw.com/"]
         - ["{os}", "/win.*/"]
 
-    # namespaces:
-    #     MyProject: "{base}/src"
+    sources:
+        - "{basepath}/src/"
 
     # autoexec:
     #     - "MyProject\\Project::autoexec"
