@@ -3,4 +3,4 @@ sources:
 
 commands:
     test:
-        "MyProject\FrontModule\Commands\Test::x"
+        # "MyProject\FrontModule\Commands\Test::x"
