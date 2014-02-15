@@ -11,29 +11,19 @@
  * @license     http://www.apache.org/licenses/LICENSE-2.0 - Apache License, Version 2.0
  */
 
-namespace MyProject\FrontModule\Processors;
+namespace MyProject\FrontModule\Controllers;
 
-use Scabbia\Framework\Core;
+use Scabbia\Mvc\Controller;
 
-class Test
+class Home extends Controller
 {
     /**
-     * Entry point for processor
+     * GET home/index action
      *
-     * @param array $uAnnotations annotations
-     */
-    public static function method(array $uAnnotations)
-    {
-        print_r($uAnnotations);
-    }
-
-    /**
-     * Test method
-     *
-     * @test {id: 5, yaml: true, description: a small description}
+     * @route {method: get, path: /}
     */
-    public function testMethod()
+    public function get_index()
     {
-
+        echo "helo";
     }
 }

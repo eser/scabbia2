@@ -6,6 +6,6 @@ commands:
         callback: "Scabbia\\Commands\\GenerateCommand::generate"
         config:
             annotations:
-                test:     {format: yaml}
+                route:    {format: yaml}
             methods:
-                - "MyProject\\FrontModule\\Processors\\Test::method"
+                - "Scabbia\\Mvc\\Generator::generate"
