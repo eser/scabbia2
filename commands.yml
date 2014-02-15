@@ -3,4 +3,9 @@ sources:
 
 commands:
     generate:
-        "MyProject\FrontModule\Commands\Generator::generate"
+        callback: "MyProject\\FrontModule\\Commands\\Generator::generate"
+        config:
+            annotations:
+                test:     {format: yaml}
+            methods:
+                - "MyProject\\FrontModule\\Processors\\Test::method"

@@ -15,7 +15,7 @@ namespace MyProject\FrontModule\Commands;
 
 use Scabbia\Framework\Core;
 use Scabbia\Framework\Io;
-use Scabbia\Yaml\Parser;
+// use Scabbia\Yaml\Parser;
 
 class Generator
 {
@@ -25,23 +25,29 @@ class Generator
     public static $parser = null;
 
     /**
-     * @type array $registry set of registered annotations
+     * @type array $config configuration of generator command
      */
-    public static $registry = [
-        "test" => ["format" => "yaml"]
-    ];
+    public static $config = null;
+
+    /**
+     * @type array $annotations result of generator command
+     */
+    public static $result = null;
 
 
     /**
-     * Entry point for "generate" command.
+     * Entry point for "generate" command
      *
      * @param array $uParameters command parameters
+     * @param mixed $uConfig     command configuration
      *
-     * @test {eser: ozvataf, seyma: kacar}
+     * @test {yaml: true, json: false, plain: false}
      * @throws \RuntimeException if configuration is invalid
      */
-    public static function generate(array $uParameters)
+    public static function generate(array $uParameters, $uConfig)
     {
+        self::$config = $uConfig;
+
         if (count($uParameters) === 0) {
             $tProjectFile = "project.yml";
             $tApplicationName = "default";
@@ -62,6 +68,7 @@ class Generator
             throw new \RuntimeException("invalid configuration - {$tProjectFile}/{$tApplicationName}");
         }
 
+        self::$result = [];
         foreach ($uApplicationConfig[$tApplicationName]["sources"] as $tPath) {
             Io::getFilesWalk(
                 Core::translateVariables($tPath),
@@ -69,6 +76,14 @@ class Generator
                 true,
                 [__CLASS__, "processFile"]
             );
+        }
+
+        if (isset(self::$config["methods"])) {
+            $tCommandMethods = self::$config["methods"];
+
+            foreach ($tCommandMethods as $tCommandMethod) {
+                call_user_func($tCommandMethod, self::$result);
+            }
         }
 
         echo "done.\n";
@@ -85,8 +100,6 @@ class Generator
         $tTokens = token_get_all($tFileContents);
 
         $tLastNamespace = "";
-        $tClasses = [];
-
         $tExpectation = 0; // 1=namespace, 2=class
 
         foreach ($tTokens as $tToken) {
@@ -120,13 +133,10 @@ class Generator
                     $tExpectation = 0;
                 }
             } elseif ($tExpectation === 2) {
-                $tClasses[] = "{$tLastNamespace}\\{$tTokenContent}";
+                // $tClasses[] = "{$tLastNamespace}\\{$tTokenContent}";
+                self::processClass("{$tLastNamespace}\\{$tTokenContent}");
                 $tExpectation = 0;
             }
-        }
-
-        foreach ($tClasses as $tClass) {
-            self::processClass($tClass);
         }
     }
 
@@ -137,9 +147,18 @@ class Generator
      */
     public static function processClass($uClass)
     {
-        $tAnnotations = [];
+        $tClassAnnotations = [
+            "methods" => [],
+            "properties" => [],
+
+            "staticMethods" => [],
+            "staticProperties" => []
+        ];
+        $tCount = 0;
 
         $tReflection = new \ReflectionClass($uClass);
+
+        // methods
         foreach ($tReflection->getMethods() as $tMethodReflection) {
             // TODO: check the correctness of logic
             if ($tMethodReflection->class !== $uClass) {
@@ -148,23 +167,54 @@ class Generator
 
             $tDocComment = $tMethodReflection->getDocComment();
             if (strlen($tDocComment) > 0) {
-                $tParsedAnnotations = self::parseAnnotations($tDocComment);
+                $tParsedDocComment = self::parseAnnotations($tDocComment);
 
-                if (count($tParsedAnnotations) > 0) {
-                    $tAnnotations[$tMethodReflection->name] = $tParsedAnnotations;
+                if (count($tParsedDocComment) === 0) {
+                    // nothing
+                } elseif ($tMethodReflection->isStatic()) {
+                    $tClassAnnotations["staticMethods"][$tMethodReflection->name] = $tParsedDocComment;
+                    $tCount++;
+                } else {
+                    $tClassAnnotations["methods"][$tMethodReflection->name] = $tParsedDocComment;
+                    $tCount++;
                 }
             }
         }
 
-        print_r($tAnnotations);
+        // properties
+        foreach ($tReflection->getProperties() as $tPropertyReflection) {
+            // TODO: check the correctness of logic
+            if ($tPropertyReflection->class !== $uClass) {
+                continue;
+            }
+
+            $tDocComment = $tPropertyReflection->getDocComment();
+            if (strlen($tDocComment) > 0) {
+                $tParsedAnnotations = self::parseAnnotations($tDocComment);
+
+                if (count($tParsedAnnotations) === 0) {
+                    // nothing
+                } elseif ($tPropertyReflection->isStatic()) {
+                    $tClassAnnotations["staticProperties"][$tPropertyReflection->name] = $tParsedAnnotations;
+                    $tCount++;
+                } else {
+                    $tClassAnnotations["properties"][$tPropertyReflection->name] = $tParsedAnnotations;
+                    $tCount++;
+                }
+            }
+        }
+
+        if ($tCount > 0) {
+            self::$result[$uClass] = $tClassAnnotations;
+        }
     }
 
     /**
      * Parses the docblock and returns annotations in an array
      *
-     * @param string $uDocComment Docblock which contains annotations
+     * @param string $uDocComment docblock which contains annotations
      *
-     * @returns array Set of annotations
+     * @returns array set of annotations
      */
     public static function parseAnnotations($uDocComment)
     {
@@ -175,36 +225,40 @@ class Generator
             PREG_SET_ORDER
         );
 
-        $tAnnotations = [];
+        $tParsedAnnotations = [];
 
-        if (self::$parser === null) {
-            self::$parser = new Parser();
-        }
+        if (isset(self::$config["annotations"])) {
+            $tAnnotationDefinitions = self::$config["annotations"];
 
-        foreach ($tDocCommentLines as $tDocCommentLine) {
-            if (!isset(self::$registry[$tDocCommentLine[1]])) {
-                continue;
-            }
-
-            $tRegistryItem = self::$registry[$tDocCommentLine[1]];
-
-            if (!isset($tAnnotations[$tDocCommentLine[1]])) {
-                $tAnnotations[$tDocCommentLine[1]] = [];
-            }
-
-            if (isset($tDocCommentLine[2])) {
-                if ($tRegistryItem["format"] === "yaml") {
-                    $tLine = self::$parser->parse($tDocCommentLine[2]);
-                } else {
-                    $tLine = $tDocCommentLine[2];
+            foreach ($tDocCommentLines as $tDocCommentLine) {
+                if (!isset($tAnnotationDefinitions[$tDocCommentLine[1]])) {
+                    continue;
                 }
-            } else {
-                $tLine = "";
-            }
 
-            $tAnnotations[$tDocCommentLine[1]][] = $tLine;
+                $tRegistryItem = $tAnnotationDefinitions[$tDocCommentLine[1]];
+
+                if (!isset($tParsedAnnotations[$tDocCommentLine[1]])) {
+                    $tParsedAnnotations[$tDocCommentLine[1]] = [];
+                }
+
+                if (isset($tDocCommentLine[2])) {
+                    if ($tRegistryItem["format"] === "yaml") {
+                        if (self::$parser === null) {
+                            self::$parser = new \Scabbia\Yaml\Parser();
+                        }
+
+                        $tLine = self::$parser->parse($tDocCommentLine[2]);
+                    } else {
+                        $tLine = $tDocCommentLine[2];
+                    }
+                } else {
+                    $tLine = "";
+                }
+
+                $tParsedAnnotations[$tDocCommentLine[1]][] = $tLine;
+            }
         }
 
-        return $tAnnotations;
+        return $tParsedAnnotations;
     }
 }
