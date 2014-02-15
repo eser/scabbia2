@@ -15,6 +15,13 @@ namespace MyProject\FrontModule\Controllers;
 
 use Scabbia\Mvc\Controller;
 
+/**
+ * Home controller
+ *
+ * @package     MyProject\FrontModule\Controllers
+ * @author      Eser Ozvataf <eser@sent.com>
+ * @since       2.0.0
+ */
 class Home extends Controller
 {
     /**
