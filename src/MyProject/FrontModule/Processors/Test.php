@@ -26,4 +26,14 @@ class Test
     {
         print_r($uAnnotations);
     }
+
+    /**
+     * Test method
+     *
+     * @test {id: 5, yaml: true, description: a small description}
+    */
+    public function testMethod()
+    {
+
+    }
 }

@@ -3,7 +3,7 @@ sources:
 
 commands:
     generate:
-        callback: "MyProject\\FrontModule\\Commands\\Generator::generate"
+        callback: "Scabbia\\Commands\\GenerateCommand::generate"
         config:
             annotations:
                 test:     {format: yaml}
