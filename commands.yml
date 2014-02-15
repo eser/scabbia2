@@ -2,5 +2,5 @@ sources:
     - "{basepath}/src/"
 
 commands:
-    # test:
-    #     "MyProject\FrontModule\Commands\Test::x"
+    generate:
+        "MyProject\FrontModule\Commands\Generator::generate"

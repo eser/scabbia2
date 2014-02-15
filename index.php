@@ -30,4 +30,4 @@ use Scabbia\Framework\Core;
 Core::init($composerAutoloader);
 
 // read project.yml and cache its output into cache/project.yml.php
-Core::loadProject(__DIR__ . "/project.yml");
+Core::loadProject("project.yml");
