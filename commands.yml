@@ -6,6 +6,14 @@ commands:
         callback: "Scabbia\\Commands\\GenerateCommand::generate"
         config:
             annotations:
-                route:    {format: yaml}
+                route:        {format: yaml}
+                # testfixture:  {format: yaml}
             methods:
                 - "Scabbia\\Mvc\\Generator::generate"
+
+    tests:
+        callback: "Scabbia\\Commands\\TestsCommand::tests"
+        config:
+            fixtures:
+                - "Scabbia\\Tests\\Yaml\\ParserTest"
+                - "Scabbia\\Tests\\Yaml\\InlineTest"

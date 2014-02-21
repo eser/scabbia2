@@ -11,8 +11,9 @@ default:
     sources:
         - "{basepath}/src/"
 
-    # autoexec:
-    #     - "MyProject\\Project::autoexec"
+    # events:
+    #     preenvironment:
+    #         - "MyProject\\Project::autoexec"
 
     environments:
         http: "Scabbia\\Environments\\Http"
