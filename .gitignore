@@ -1,3 +1,16 @@
-.idea/
+## Composer
 vendor/
 composer.lock
+
+## PHPStorm
+.idea/
+
+## Windows
+Thumbs.db
+Desktop.ini
+
+## Mac OS X
+.DS_Store
+
+## Vim
+.*.sw?
