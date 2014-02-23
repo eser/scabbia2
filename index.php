@@ -11,7 +11,7 @@
  * @license     http://www.apache.org/licenses/LICENSE-2.0 - Apache License, Version 2.0
  */
 
-// sdefine("SCABBIA2_PATH", __DIR__ . "/../scabbia2-dev");
+// define("SCABBIA2_PATH", __DIR__ . "/../scabbia2-dev");
 
 if (!file_exists($composerAutoloaderPath = __DIR__ . "/vendor/autoload.php")) {
     throw new \RuntimeException("Unable to load Composer which is required for Scabbia2. Run `php scabbia upgrade`.");

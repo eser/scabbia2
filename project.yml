@@ -2,7 +2,7 @@ default:
     development:   true
     disableCaches: false
 
-    type: "Scabbia\\Mvc\\MvcApplication"
+    type: "Scabbia\\Mvc\\Application"
 
     tests:
         # - ["{host}", "/(a-z).scabbiafw.com|scabbiafw.com/"]
@@ -14,10 +14,6 @@ default:
     # events:
     #     preenvironment:
     #         - "MyProject\\Project::autoexec"
-
-    environments:
-        http: "Scabbia\\Environments\\Http"
-        cli:  "Scabbia\\Environments\\Cli"
 
     modules:
         front:  "MyProject\\FrontModule"

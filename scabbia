@@ -53,6 +53,8 @@ if (defined("SCABBIA2_PATH")) {
     $composerAutoloader->setPsr4("Scabbia\\Tests\\", SCABBIA2_PATH . "/tests/");
 }
 
+// TODO: Instead of "Commands" static class, a console application can be created
+
 use Scabbia\Framework\Core;
 use Scabbia\Framework\Commands;
 
