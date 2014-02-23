@@ -29,7 +29,7 @@ class Home extends Controller
      *
      * @route {method: get, path: /}
     */
-    public function get_index()
+    public function getIndex()
     {
         echo "helo";
     }
