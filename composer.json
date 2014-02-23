@@ -25,10 +25,8 @@
         "post-create-project-cmd": [
         ],
         "post-install-cmd": [
-            "php scabbia upgrade"
         ],
         "post-update-cmd": [
-            "php scabbia upgrade"
         ]
     },
     "config": {
