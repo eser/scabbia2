@@ -28,6 +28,8 @@ class Home extends Controller
      * GET home/index action
      *
      * @route {method: get, path: /}
+     *
+     * @return void
     */
     public function getIndex()
     {

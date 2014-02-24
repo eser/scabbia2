@@ -1,22 +1,14 @@
-# DirectoryIndex index.php
 AddDefaultCharset UTF-8
 AddCharset utf-8 .css .js
-# Options +FollowSymLinks -Indexes -MultiViews
 
 <IfModule mod_rewrite.c>
-    RewriteEngine on
-
-	#RewriteBase /
-
-	# SEO optimization for sites.
-	# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-	# RewriteRule ^ //%1%{REQUEST_URI} [R=301,L]
+	RewriteEngine on
 
 	# Keep people out of framework files and scc data
-	RewriteRule (^\.|/\.|^web.config|/web.config|^scabbia$|^composer.json|/composer.json|^composer.lock|/composer.lock|^cache/?$|^cache/.+$|^src/?$|^src/.+$|^vendor/?$|^vendor/.+$) - [NC,F]
+	RewriteRule (^\.|/\.|^web.config|/web.config|^scabbia$|^composer.json|/composer.json|^composer.lock|/composer.lock|^writable/?$|^writable/.+$|^src/?$|^src/.+$|^vendor/?$|^vendor/.+$) - [NC,F]
 
 	# Send request via index.php (again, not if its a real file or folder)
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^ index.php [L]
 </IfModule>
