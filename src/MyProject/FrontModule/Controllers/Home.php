@@ -25,7 +25,7 @@ use Scabbia\Mvc\Controller;
 class Home extends Controller
 {
     /**
-     * GET home/index action
+     * GET / action
      *
      * @route {method: get, path: /}
      *
@@ -34,5 +34,19 @@ class Home extends Controller
     public function getIndex()
     {
         echo "helo";
+    }
+
+    /**
+     * GET /user/? action
+     *
+     * @route {method: get, path: "/user/{id:[0-9]+}"}
+     *
+     * @param int $uUserId user id
+     *
+     * @return void
+     */
+    public function getUser($uUserId)
+    {
+        echo "helo: {$uUserId}";
     }
 }
