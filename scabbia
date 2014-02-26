@@ -12,6 +12,8 @@
  * @license     http://www.apache.org/licenses/LICENSE-2.0 - Apache License, Version 2.0
  */
 
+ini_set("display_errors", "on");
+
 if (PHP_SAPI !== "cli") {
     throw new RuntimeException("scabbia only runs under Command Line Interface (CLI).");
 }
@@ -62,7 +64,7 @@ use Scabbia\Framework\Commands;
 Core::init($composerAutoloader);
 
 // read commands.yml and cache its output into cache/commands.yml.php
-Commands::load(__DIR__ . "/commands.yml");
+Commands::load("commands.yml");
 $tExitCode = Commands::execute($tCommands);
 
 exit($tExitCode);
