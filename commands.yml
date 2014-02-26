@@ -3,7 +3,7 @@ sources:
 
 commands:
     generate:
-        callback: "Scabbia\\Commands\\GenerateCommand::generate"
+        callback: "Scabbia\\Framework\\Commands\\GenerateCommand::generate"
         config:
             annotations:
                 event:        {format: yaml}
@@ -14,7 +14,7 @@ commands:
                 - "Scabbia\\Router\\Generator::generate"
 
     tests:
-        callback: "Scabbia\\Commands\\TestsCommand::tests"
+        callback: "Scabbia\\Testing\\TestsCommand::tests"
         config:
             fixtures:
                 - "Scabbia\\Tests\\Yaml\\ParserTest"
