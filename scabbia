@@ -36,7 +36,8 @@ if (trim($tCommands[0]) === "upgrade") {
 	if (file_exists("vendor")) {
 		passthru($tComposerCmd . " update");
 	} else {
-		passthru($tComposerCmd . " install");
+		passthru($tComposerCmd . " install");file:///var/www/scabbia2-skel/index.php
+
 	}
 
     exit;
