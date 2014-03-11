@@ -13,40 +13,15 @@
 
 namespace MyProject\FrontModule\Controllers;
 
-use MyProject\FrontModule\Controllers\BaseController;
+use Scabbia\Mvc\Controller;
 
 /**
- * Home controller
+ * BaseController controller base
  *
  * @package     MyProject\FrontModule\Controllers
  * @author      Eser Ozvataf <eser@sent.com>
  * @since       2.0.0
  */
-class Home extends BaseController
+abstract class BaseController extends Controller
 {
-    /**
-     * GET / action
-     *
-     * @route {method: get, path: /}
-     *
-     * @return void
-    */
-    public function getIndex()
-    {
-        echo "helo";
-    }
-
-    /**
-     * GET /user/? action
-     *
-     * @route {method: get, path: "/user/{id:[0-9]+}"}
-     *
-     * @param int $uUserId user id
-     *
-     * @return void
-     */
-    public function getUser($uUserId)
-    {
-        echo "helo: {$uUserId}";
-    }
 }
