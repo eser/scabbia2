@@ -1,5 +1,4 @@
-README
-======
+# Skeleton Application for Scabbia2 PHP Framework
 
 [This project](https://github.com/scabbiafw/scabbia2-skel/) is the skeleton application using [Scabbia2 PHP Framework](http://scabbiafw.com/) and its bundles. It is designed to helps you to jump-start developing projects with the Scabbia2 without setting up a configuration from scratch.
 
@@ -8,45 +7,34 @@ README
 [![Total Downloads](https://poser.pugx.org/scabbiafw/scabbia2-skel/downloads.png)](https://packagist.org/packages/scabbiafw/scabbia2-skel)
 [![License](https://poser.pugx.org/scabbiafw/scabbia2-skel/license.png)](https://packagist.org/packages/scabbiafw/scabbia2-skel)
 
-Installation
-------------
-##### Alternative 1: Zip Package #####
+## Installation
 
-Download [Skeleton Application](https://github.com/scabbiafw/scabbia2-skel/archive/master.zip) and launch `php scabbia upgrade`.
-
-##### Alternative 2: Git #####
+**Step 1:**
 
 On Terminal or Command Prompt:
 ``` bash
 git clone https://github.com/scabbiafw/scabbia2-skel project
+```
+
+Alternatively [PM](https://github.com/scabbiafw/scabbia2-skel/archive/master.zip) package can be downloaded directly.
+
+**Step 2:**
+
+``` bash
 cd project
 php scabbia upgrade
 ```
 
-##### Alternative 3: Composer #####
+**Step 3:**
 
-On *nix:
+Make `writable` directory writable.
+
 ``` bash
-php -r "eval('?>'.file_get_contents('https://getcomposer.org/installer'));"
-php composer.phar create-project scabbiafw/scabbia2-skel -s dev project
-```
-
-On Windows:
-Download and install [Composer-Setup.exe](http://getcomposer.org/Composer-Setup.exe) then run:
-``` bat
-composer create-project scabbiafw/scabbia2-skel -s dev project
+chmod 0777 -R writable
 ```
 
 
-Update
-------
-``` bash
-php scabbia upgrade
-```
-
-
-Requirements
-------------
+## Requirements
 * PHP 5.4.0+ (http://www.php.net/)
 * Composer Dependency Manager** (http://getcomposer.org/)
 * Scabbia2 PHP Framework** (http://scabbiafw.com/)
@@ -54,14 +42,16 @@ Requirements
 ** Will be auto-installed during composer execution
 
 
-License
--------
-See [LICENSE](LICENSE)
+## Links
+- [Framework Project](//github.com/scabbiafw/scabbia2)
+- [Documentation](http://scabbiafw.com/docs/)
+- [Twitter](https://twitter.com/scabbiafw)
+- [License Information](LICENSE)
 
 
-Contributing
-------------
+## Contributing
 All contributions should be filed on the [scabbiafw/scabbia2-skel](http://github.com/scabbiafw/scabbia2-skel) repository.
 
-* Fork the repo, push your changes to your fork, and submit a pull request.
-* If something does not work, please report it using GitHub issues.
+* To contribute to code: Fork the repo, push your changes to your fork, and submit a pull request.
+* To report a bug: If something does not work, please report it using GitHub issues.
+* To support: [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BXNMWG56V6LYS)
