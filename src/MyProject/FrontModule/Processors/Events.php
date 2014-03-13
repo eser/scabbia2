@@ -25,12 +25,12 @@ class Events
     /**
      * A sample for event-member methods
      *
-     * @event {on: load, priority: 10}
+     * @event {on: applicationInit, priority: 10}
      *
      * @return void
     */
     public static function onLoad()
     {
-        echo "onLoad";
+        echo "onApplicationInit";
     }
 }

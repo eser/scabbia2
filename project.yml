@@ -6,7 +6,7 @@ default:
 
     tests:
         # - ["{host}", "/(a-z).scabbiafw.com|scabbiafw.com/"]
-        - ["{os}", "/win.*/"]
+        # - ["{os}", "/win.*/"]
 
     sources:
         - "{basepath}/src/"
