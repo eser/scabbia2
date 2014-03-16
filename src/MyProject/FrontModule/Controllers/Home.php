@@ -27,7 +27,7 @@ class Home extends BaseController
     /**
      * GET / action
      *
-     * @route {method: get, path: /}
+     * @route {method: [get, post], path: /, name: 'home'}
      *
      * @return void
     */
