@@ -27,7 +27,7 @@ class Home extends BaseController
     /**
      * GET / action
      *
-     * @route {method: [get, post], path: /, name: 'home'}
+     * @route {method: [get, post], name: "home", path: "/"}
      *
      * @return void
     */
@@ -39,7 +39,7 @@ class Home extends BaseController
     /**
      * GET /user/? action
      *
-     * @route {method: get, path: "/user/{id:[0-9]+}"}
+     * @route {method: get, name: "home/user", path: "/user/{id:[0-9]+}"}
      *
      * @param int $uUserId user id
      *

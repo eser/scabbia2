@@ -12,6 +12,7 @@
  */
 
 // define("SCABBIA2_PATH", __DIR__ . "/../scabbia2-dev");
+ini_set("display_errors", "on");
 
 if (!file_exists($composerAutoloaderPath = __DIR__ . "/vendor/autoload.php")) {
     throw new \RuntimeException("Unable to load Composer which is required for Scabbia2. Run `php scabbia upgrade`.");
