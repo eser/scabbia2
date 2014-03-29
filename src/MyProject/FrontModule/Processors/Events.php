@@ -12,6 +12,7 @@
  */
 
 namespace MyProject\FrontModule\Processors;
+
 use Scabbia\Helpers\String;
 
 /**
