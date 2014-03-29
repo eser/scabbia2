@@ -13,6 +13,7 @@
 
 namespace MyProject\FrontModule\Controllers;
 
+use Scabbia\Router\Router;
 use MyProject\FrontModule\Controllers\BaseController;
 
 /**
@@ -33,7 +34,9 @@ class Home extends BaseController
     */
     public function getIndex()
     {
-        echo "helo";
+        echo "hello world<br />",
+            Router::path("home/user", ["id" => "eser"]),
+            "<br />";
     }
 
     /**
@@ -47,6 +50,6 @@ class Home extends BaseController
      */
     public function getUser($uUserId)
     {
-        echo "helo: {$uUserId}";
+        echo "helo: {$uUserId}<br />";
     }
 }

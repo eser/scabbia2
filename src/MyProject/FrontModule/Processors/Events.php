@@ -12,6 +12,7 @@
  */
 
 namespace MyProject\FrontModule\Processors;
+use Scabbia\Helpers\String;
 
 /**
  * Events class
@@ -23,7 +24,7 @@ namespace MyProject\FrontModule\Processors;
 class Events
 {
     /**
-     * A sample for event-member methods
+     * A sample for event-member method for applicationInit event
      *
      * @event {on: applicationInit, priority: 10}
      *
@@ -31,6 +32,39 @@ class Events
     */
     public static function onLoad()
     {
-        echo "onApplicationInit";
+        // echo "onApplicationInit<br />";
+    }
+
+    /**
+     * A sample for event-member method for requestBegin event
+     *
+     * @event {on: requestBegin, priority: 10}
+     *
+     * @param null|array $uEventArgs arguments for the event
+     *
+     * @return void
+     */
+    public static function onRequestBegin($uEventArgs)
+    {
+        // echo "onRequestBegin<br />";
+
+        String::vardump($uEventArgs);
+    }
+
+    /**
+     * A sample for event-member method for requestEnd event
+     *
+     * @event {on: requestEnd, priority: 10}
+     *
+     * @param null|array $uEventArgs arguments for the event
+     *
+     * @return void
+     */
+    public static function onRequestEnd($uEventArgs)
+    {
+        // echo "onRequestEnd<br />";
+
+        $tDiff = (microtime(true) - $_SERVER["REQUEST_TIME_FLOAT"]);
+        echo "Generated in {$tDiff} msec";
     }
 }
