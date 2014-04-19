@@ -1,1 +1,1 @@
-User-agent: *
+User-agent: *Disallow: /src/Disallow: /vendor/

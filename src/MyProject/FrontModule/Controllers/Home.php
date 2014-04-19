@@ -13,6 +13,7 @@
 
 namespace MyProject\FrontModule\Controllers;
 
+use Scabbia\Config\Config;
 use Scabbia\Router\Router;
 use MyProject\FrontModule\Controllers\BaseController;
 
@@ -51,5 +52,20 @@ class Home extends BaseController
     public function getUser($uUserId)
     {
         echo "helo: {$uUserId}<br />";
+    }
+
+    /**
+     * GET /config action
+     *
+     * @route {method: get, name: "home/config", path: "/config"}
+     *
+     * @return void
+     */
+    public function getConfig()
+    {
+        $tConfig = Config::load("/var/www/test.yml");
+
+        var_dump($tConfig->get());
+        echo "<br />";
     }
 }

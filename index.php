@@ -27,8 +27,11 @@ if (defined("SCABBIA2_PATH")) {
 
 use Scabbia\Framework\Core;
 
-// it's only initializes framework with the spl autoloader.
+// initializes the autoloader and framework variables.
 Core::init($composerAutoloader);
 
-// read project.yml and cache its output into cache/project.yml.php
+// read the application definitions from project.yml file and cache its content into cache/project.yml.php
 Core::loadProject("project.yml");
+
+// pick which application is going to run
+Core::pickApplication();
