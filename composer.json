@@ -1,5 +1,5 @@
 {
-    "name": "scabbiafw/scabbia2-skel",
+    "name": "scabbiafw/scabbia2",
     "description": "Skeleton Application for Scabbia2 PHP Framework",
     "type": "library",
     "minimum-stability": "dev",
@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "scabbiafw/scabbia2": "dev-master"
+        "scabbiafw/scabbia2-fw": "dev-master"
     },
     "scripts": {
         "post-create-project-cmd": [

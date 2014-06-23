@@ -63,7 +63,9 @@ class Home extends BaseController
      */
     public function getConfig()
     {
-        $tConfig = Config::load("/var/www/test.yml");
+        $tConfig = new Config();
+        $tConfig->add("/var/www/test.yml");
+        $tConfig->add("/var/www/test2.yml");
 
         var_dump($tConfig->get());
         echo "<br />";
