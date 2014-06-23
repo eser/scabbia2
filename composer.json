@@ -1,14 +1,16 @@
 {
     "name": "scabbiafw/scabbia2",
-    "description": "Skeleton Application for Scabbia2 PHP Framework",
+    "description": "Scabbia2 Standard Package",
     "type": "library",
     "minimum-stability": "dev",
     "keywords": [
         "larukedi",
         "scabbia",
         "scabbia2",
+        "scabbiafw",
         "framework",
-        "skeleton"
+        "skeleton",
+        "standard"
     ],
     "homepage": "http://www.scabbiafw.com/",
     "license": "Apache-2.0",

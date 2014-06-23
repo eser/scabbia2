@@ -1,6 +1,8 @@
-# Skeleton Application for Scabbia2 PHP Framework
+# Scabbia2 Standard Package
 
-[This project](https://github.com/scabbiafw/scabbia2/) is the skeleton application using [Scabbia2 PHP Framework Code](https://github.com/scabbiafw/scabbia2-fw/) and its bundles. It is designed to helps you to jump-start developing projects with the Scabbia2 without setting up a configuration from scratch.
+**Scabbia2** is an open source PHP framework project which is currently on planning stage. Keep visiting [project homepage](http://scabbiafw.com/) and [repositories](https://github.com/scabbiafw/) for further updates.
+
+[This repository](https://github.com/scabbiafw/scabbia2/) contains the standard package for the framework and its dependencies. It is designed to helps you to jump-start developing projects with the Scabbia2 without setting up a configuration from scratch.
 
 [![Build Status](https://travis-ci.org/scabbiafw/scabbia2.png?branch=master)](https://travis-ci.org/scabbiafw/scabbia2)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/scabbiafw/scabbia2/badges/quality-score.png?s=350f4ba6b830721a9a434e6ae1ea44c7b50819ac)](https://scrutinizer-ci.com/g/scabbiafw/scabbia2/)
@@ -16,7 +18,7 @@ On Terminal or Command Prompt:
 git clone https://github.com/scabbiafw/scabbia2 project
 ```
 
-Alternatively [PM](https://github.com/scabbiafw/scabbia2/archive/master.zip) package can be downloaded directly.
+Alternatively [latest build](https://github.com/scabbiafw/scabbia2/archive/master.zip) can be downloaded directly.
 
 **Step 2:**
 
