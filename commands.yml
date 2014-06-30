@@ -3,20 +3,18 @@ sources:
 
 commands:
     generate:
-        callback: "Scabbia\\Framework\\Commands\\GenerateCommand::generate"
+        class: "Scabbia\\Generators\\GenerateCommand"
         config:
-            annotations:
-                event:        {format: yaml}
-                route:        {format: yaml}
-                # testfixture:  {format: yaml}
-            methods:
-                - "Scabbia\\Events\\Generator::generate"
-                - "Scabbia\\Router\\Generator::generate"
+            generators:
+                # - "Scabbia\\Assets\\Generator"
+                - "Scabbia\\Events\\Generator"
+                - "Scabbia\\Router\\Generator"
+                - "Scabbia\\Documentor\\Generator"
 
     tests:
-        callback: "Scabbia\\Testing\\TestsCommand::tests"
+        class: "Scabbia\\Testing\\TestsCommand"
         config:
             fixtures:
                 - "Scabbia\\Tests\\Yaml\\ParserTest"
                 - "Scabbia\\Tests\\Yaml\\InlineTest"
-                - "Scabbia\\Tests\\Crypt\\HashTest"
+                - "Scabbia\\Tests\\Security\\HashTest"
