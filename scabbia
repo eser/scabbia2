@@ -18,7 +18,7 @@ if (PHP_SAPI !== "cli") {
 }
 
 if (count($_SERVER["argv"]) <= 1) {
-    throw new RuntimeException("scabbia needs a command.");
+    throw new RuntimeException("scabbia needs a command to run.");
 }
 
 $tCommands = array_slice($_SERVER["argv"], 1);
@@ -63,7 +63,7 @@ if (defined("SCABBIA2_PATH")) {
 // MD # framework initialization
 // TODO Instead of "Commands" static class, a console application can be created
 use Scabbia\Framework\Core;
-use Scabbia\Framework\Commands;
+use Scabbia\Commands\Commands;
 
 // MD - initializes the autoloader and framework variables.
 Core::init($composerAutoloader);
