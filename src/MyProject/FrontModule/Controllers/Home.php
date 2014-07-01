@@ -70,4 +70,16 @@ class Home extends BaseController
         var_dump($tConfig->get());
         echo "<br />";
     }
+
+    /**
+     * GET /facades action
+     *
+     * @route {method: get, name: "home/facades", path: "/facades"}
+     *
+     * @return void
+     */
+    public function getFacades()
+    {
+        echo \MyProject\FrontModule\Processors\FacadeTest::slug('Deneme yazisi');
+    }
 }
