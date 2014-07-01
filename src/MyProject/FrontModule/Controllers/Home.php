@@ -15,6 +15,7 @@ namespace MyProject\FrontModule\Controllers;
 
 use Scabbia\Config\Config;
 use Scabbia\Router\Router;
+use Scabbia\Views\Views;
 use MyProject\FrontModule\Controllers\BaseController;
 
 /**
@@ -37,10 +38,21 @@ class Home extends BaseController
     {
         $this->bind("MyProject\\FrontModule\\Models\\HomeModel");
 
-        echo $this->homeModel->getWelcomeMessage(),
-            "<br />",
-            Router::path("home/user", ["id" => "eser"]),
-            "<br />";
+        $this->vars->set("welcomeText", $this->homeModel->getWelcomeMessage());
+
+        Views::viewFile("{basepath}/src/MyProject/FrontModule/Views/Home/index.php", $this->vars->toArray());
+    }
+
+    /**
+     * GET /link action
+     *
+     * @route {method: get, name: "home/link", path: "/link"}
+     *
+     * @return void
+     */
+    public function getLink()
+    {
+        echo Router::path("home/user", ["id" => "eser"]);
     }
 
     /**

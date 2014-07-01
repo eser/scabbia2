@@ -18,3 +18,6 @@ commands:
                 - "Scabbia\\Tests\\Yaml\\ParserTest"
                 - "Scabbia\\Tests\\Yaml\\InlineTest"
                 - "Scabbia\\Tests\\Security\\HashTest"
+
+    test:
+        class: "MyProject\\FrontModule\\Commands\\TestCommand"
