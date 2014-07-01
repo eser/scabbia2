@@ -35,7 +35,10 @@ class Home extends BaseController
     */
     public function getIndex()
     {
-        echo "hello world<br />",
+        $this->bind("MyProject\\FrontModule\\Models\\HomeModel");
+
+        echo $this->homeModel->getWelcomeMessage(),
+            "<br />",
             Router::path("home/user", ["id" => "eser"]),
             "<br />";
     }
