@@ -11,30 +11,31 @@
  * @license     http://www.apache.org/licenses/LICENSE-2.0 - Apache License, Version 2.0
  */
 
-// MD # composer initialization
-// MD - determine running path
-$tRunningPath = __DIR__;
+// MD # autoloader initialization
+// MD - determine framework path
+// define("SCABBIA2_PATH", __DIR__ . "/../scabbia2-fw");
 
-// MD - determine running path
-if (!file_exists($composerAutoloaderPath = "{$tRunningPath}/vendor/autoload.php")) {
-    throw new \RuntimeException("Unable to load Composer which is required for Scabbia2. Run `php scabbia upgrade`.");
+if (defined("SCABBIA2_PATH")) {
+    $tFrameworkPath = SCABBIA2_PATH;
+} else {
+    $tFrameworkPath = __DIR__ . "/vendor/scabbiafw/scabbia2-fw";
 }
 
-// MD - load the autoloader
-$composerAutoloader = require($composerAutoloaderPath);
+// MD - instantiate and register the loader
+require "{$tFrameworkPath}/src/Loaders/Composer.php";
+$tLoader = \Scabbia\Loaders\Composer::init(__DIR__ . "/vendor/composer");
 
 // MD - set framework path if necessary
-// define("SCABBIA2_PATH", "{$tRunningPath}/../scabbia2-fw");
 if (defined("SCABBIA2_PATH")) {
-    $composerAutoloader->setPsr4("Scabbia\\", SCABBIA2_PATH . "/src/");
-    $composerAutoloader->setPsr4("Scabbia\\Tests\\", SCABBIA2_PATH . "/tests/");
+    $tLoader->setPsr4("Scabbia\\", SCABBIA2_PATH . "/src/");
+    $tLoader->setPsr4("Scabbia\\Tests\\", SCABBIA2_PATH . "/tests/");
 }
 
 // MD # framework initialization
 use Scabbia\Framework\Core;
 
 // MD - initializes the autoloader and framework variables.
-Core::init($composerAutoloader);
+Core::init($tLoader);
 
 // MD - read the application definitions from project.yml file and cache its content into cache/project.yml.php
 Core::loadProject("project.yml");

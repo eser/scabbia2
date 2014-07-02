@@ -17,6 +17,7 @@ use Scabbia\Config\Config;
 use Scabbia\Router\Router;
 use Scabbia\Views\Views;
 use MyProject\FrontModule\Controllers\BaseController;
+use \MyProject\FrontModule\Processors\FacadeTest;
 
 /**
  * Home controller
@@ -40,7 +41,7 @@ class Home extends BaseController
 
         $this->vars->set("welcomeText", $this->homeModel->getWelcomeMessage());
 
-        Views::viewFile("{basepath}/src/MyProject/FrontModule/Views/Home/index.php", $this->vars->toArray());
+        Views::viewFile("MyProject\\FrontModule\\Views\\Home\\index.php", $this->vars->toArray());
     }
 
     /**
@@ -95,6 +96,6 @@ class Home extends BaseController
      */
     public function getFacades()
     {
-        echo \MyProject\FrontModule\Processors\FacadeTest::slug('Deneme yazisi');
+        echo FacadeTest::slug('Deneme yazisi');
     }
 }
