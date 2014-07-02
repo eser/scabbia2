@@ -18,12 +18,12 @@ if (PHP_SAPI !== "cli") {
 }
 
 if (count($_SERVER["argv"]) <= 1) {
-    throw new RuntimeException("scabbia needs a command to run.");
+    throw new RuntimeException("scabbia needs a task to run.");
 }
 
-$tCommands = array_slice($_SERVER["argv"], 1);
+$tParameters = array_slice($_SERVER["argv"], 1);
 
-if (trim($tCommands[0]) === "upgrade") {
+if (trim($tParameters[0]) === "upgrade") {
     $tPhpCmd = "php -dsafe_mode=0";
 
     if (!file_exists("composer.phar")) {
@@ -62,16 +62,16 @@ if (defined("SCABBIA2_PATH")) {
 }
 
 // MD # framework initialization
-// TODO Instead of "Commands" static class, a console application can be created
+// TODO Instead of "Tasks" static class, a console application can be created
 use Scabbia\Framework\Core;
-use Scabbia\Commands\Commands;
+use Scabbia\Tasks\Tasks;
 
 // MD - initializes the autoloader and framework variables.
 Core::init($tLoader);
 
-// MD - read the command definitions from commands.yml file and cache its content into cache/commands.yml.php
-Commands::load("commands.yml");
+// MD - read the task definitions from tasks.yml file and cache its content into cache/tasks.yml.php
+Tasks::load("tasks.yml");
 
-// MD - execute which command is going to run
-$tExitCode = Commands::execute($tCommands);
+// MD - execute which task is going to run
+$tExitCode = Tasks::execute($tParameters);
 exit($tExitCode);
