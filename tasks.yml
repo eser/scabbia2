@@ -1,9 +1,9 @@
 sources:
     - "{basepath}/src/"
 
-commands:
+tasks:
     generate:
-        class: "Scabbia\\Generators\\GenerateCommand"
+        class: "Scabbia\\Generators\\GenerateTask"
         config:
             generators:
                 # - "Scabbia\\Assets\\Generator"
@@ -12,12 +12,15 @@ commands:
                 - "Scabbia\\Documentor\\Generator"
 
     tests:
-        class: "Scabbia\\Testing\\TestsCommand"
+        class: "Scabbia\\Testing\\TestsTask"
         config:
             fixtures:
                 - "Scabbia\\Tests\\Yaml\\ParserTest"
                 - "Scabbia\\Tests\\Yaml\\InlineTest"
                 - "Scabbia\\Tests\\Security\\HashTest"
 
+    console:
+        class: "Scabbia\\Cli\\ConsoleTask"
+
     test:
-        class: "MyProject\\FrontModule\\Commands\\TestCommand"
+        class: "MyProject\\FrontModule\\Tasks\\TestTask"

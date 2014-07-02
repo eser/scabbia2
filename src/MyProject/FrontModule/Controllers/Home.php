@@ -17,7 +17,7 @@ use Scabbia\Config\Config;
 use Scabbia\Router\Router;
 use Scabbia\Views\Views;
 use MyProject\FrontModule\Controllers\BaseController;
-use \MyProject\FrontModule\Processors\FacadeTest;
+use MyProject\FrontModule\Processors\FacadeTest;
 
 /**
  * Home controller
