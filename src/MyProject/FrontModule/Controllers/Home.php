@@ -43,7 +43,7 @@ class Home extends BaseController
         $this->vars->set("moduleName", $this->moduleConfig["fancyName"]);
         $this->vars->set("welcomeText", $this->homeModel->getWelcomeMessage());
 
-        Views::viewFile("MyProject\\FrontModule\\Views\\Home\\index.php", $this->vars->toArray());
+        $this->view("Home\\index.php");
     }
 
     /**
