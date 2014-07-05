@@ -16,5 +16,13 @@ default:
     #         - "MyProject\\Project::autoexec"
 
     modules:
-        front:  "MyProject\\FrontModule"
-        admin:  "Scabbia\\Modules\\PanelModule"
+        front:
+            namespace: "MyProject\\FrontModule"
+            fancyName: "Base Module"
+
+        front2:
+            namespace: "MyProject\\FrontModule"
+            fancyName: "Spare Module"
+
+        admin:
+            namespace: "Scabbia\\Modules\\PanelModule"

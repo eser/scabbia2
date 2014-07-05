@@ -14,6 +14,7 @@
 namespace MyProject\FrontModule\Controllers;
 
 use Scabbia\Config\Config;
+use Scabbia\Helpers\String;
 use Scabbia\Router\Router;
 use Scabbia\Views\Views;
 use MyProject\FrontModule\Controllers\BaseController;
@@ -39,6 +40,7 @@ class Home extends BaseController
     {
         $this->bind("MyProject\\FrontModule\\Models\\HomeModel");
 
+        $this->vars->set("moduleName", $this->moduleConfig["fancyName"]);
         $this->vars->set("welcomeText", $this->homeModel->getWelcomeMessage());
 
         Views::viewFile("MyProject\\FrontModule\\Views\\Home\\index.php", $this->vars->toArray());
@@ -79,11 +81,18 @@ class Home extends BaseController
      */
     public function getConfig()
     {
-        $tConfig = new Config();
-        $tConfig->add("/var/www/test.yml");
-        $tConfig->add("/var/www/test2.yml");
+        // $tConfig = new Config();
+        // $tConfig->add("/var/www/test.yml");
+        // $tConfig->add("/var/www/test2.yml");
 
-        var_dump($tConfig->get());
+        // var_dump($tConfig->get());
+
+        echo "application configuration:<br />";
+        String::vardump($this->applicationConfig);
+        echo "<br />";
+
+        echo "module configuration:<br />";
+        String::vardump($this->moduleConfig);
         echo "<br />";
     }
 
