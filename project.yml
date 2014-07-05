@@ -18,11 +18,13 @@ default:
     modules:
         front:
             namespace: "MyProject\\FrontModule"
-            fancyName: "Base Module"
+            config:
+                fancyName: "Base Module"
 
         front2:
             namespace: "MyProject\\FrontModule"
-            fancyName: "Spare Module"
+            config:
+                fancyName: "Spare Module"
 
         admin:
             namespace: "Scabbia\\Modules\\PanelModule"

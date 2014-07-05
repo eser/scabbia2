@@ -20,7 +20,10 @@ tasks:
                 - "Scabbia\\Tests\\Security\\HashTest"
 
     console:
-        class: "Scabbia\\Cli\\ConsoleTask"
+        class: "Scabbia\\Framework\\ConsoleTask"
+
+    clean:
+        class: "Scabbia\\Framework\\CleanTask"
 
     test:
         class: "MyProject\\FrontModule\\Tasks\\TestTask"
