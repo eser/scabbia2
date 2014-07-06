@@ -10,6 +10,7 @@ tasks:
                 - "Scabbia\\Events\\Generator"
                 - "Scabbia\\Router\\Generator"
                 - "Scabbia\\Documentor\\Generator"
+                - "Scabbia\\Views\\Generator"
 
     tests:
         class: "Scabbia\\Testing\\TestsTask"
