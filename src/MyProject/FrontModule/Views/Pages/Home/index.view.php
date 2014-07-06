@@ -3,4 +3,4 @@
 Current Module: <?= $moduleName ?><br />
 Testing: <?= $welcomeText ?><br />
 
-<?php var_dump($controller->routeInfo); ?>
+<?php var_dump($this->controller->routeInfo); ?>

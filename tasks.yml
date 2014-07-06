@@ -23,6 +23,9 @@ tasks:
     console:
         class: "Scabbia\\Framework\\ConsoleTask"
 
+    serve:
+        class: "Scabbia\\Framework\\ServeTask"
+
     clean:
         class: "Scabbia\\Framework\\CleanTask"
 
