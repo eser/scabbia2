@@ -7,9 +7,10 @@ tasks:
         config:
             generators:
                 # - "Scabbia\\Assets\\Generator"
+                - "Scabbia\\CodeCompiler\\Generator"
+                - "Scabbia\\Documentor\\Generator"
                 - "Scabbia\\Events\\Generator"
                 - "Scabbia\\Router\\Generator"
-                - "Scabbia\\Documentor\\Generator"
                 - "Scabbia\\Views\\Generator"
 
     tests:
@@ -21,13 +22,13 @@ tasks:
                 - "Scabbia\\Tests\\Security\\HashTest"
 
     console:
-        class: "Scabbia\\Framework\\ConsoleTask"
+        class: "Scabbia\\Framework\\Tasks\\ConsoleTask"
 
     serve:
-        class: "Scabbia\\Framework\\ServeTask"
+        class: "Scabbia\\Framework\\Tasks\\ServeTask"
 
     clean:
-        class: "Scabbia\\Framework\\CleanTask"
+        class: "Scabbia\\Framework\\Tasks\\CleanTask"
 
     test:
         class: "MyProject\\FrontModule\\Tasks\\TestTask"
