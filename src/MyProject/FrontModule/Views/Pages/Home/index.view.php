@@ -1,6 +1,7 @@
 <!-- layout: default -->
 
-Current Module: <?= $moduleName ?><br />
-Testing: <?= $welcomeText ?><br />
+Current Module: <?php echo $moduleName; ?><br />
+Testing: <?php echo $welcomeText; ?><br />
 
 <?php var_dump($this->controller->routeInfo); ?>
+.
