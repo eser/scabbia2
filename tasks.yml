@@ -8,6 +8,7 @@ tasks:
             generators:
                 # - "Scabbia\\Assets\\Generator"
                 - "Scabbia\\CodeCompiler\\Generator"
+                - "Scabbia\\Config\\Generator"
                 - "Scabbia\\Documentor\\Generator"
                 - "Scabbia\\Events\\Generator"
                 - "Scabbia\\Router\\Generator"
