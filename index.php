@@ -12,24 +12,12 @@
  */
 
 // MD # autoloader initialization
-// MD - determine framework path
-// define("SCABBIA2_PATH", __DIR__ . "/../scabbia2-fw");
-
-if (defined("SCABBIA2_PATH")) {
-    $tFrameworkPath = SCABBIA2_PATH;
-} else {
-    $tFrameworkPath = __DIR__ . "/vendor/scabbiafw/scabbia2-fw";
-}
+// MD - determine vendor path
+$tVendorPath = __DIR__ . "/vendor";
 
 // MD - instantiate and register the loader
-require "{$tFrameworkPath}/src/Loaders/Composer.php";
-$tLoader = \Scabbia\Loaders\Composer::init(__DIR__ . "/vendor/composer");
-
-// MD - set framework path if necessary
-if (defined("SCABBIA2_PATH")) {
-    $tLoader->setPsr4("Scabbia\\", SCABBIA2_PATH . "/src/");
-    $tLoader->setPsr4("Scabbia\\Tests\\", SCABBIA2_PATH . "/tests/");
-}
+require "{$tVendorPath}/scabbiafw/scabbia2-fw/src/Loaders/Loader.php";
+$tLoader = \Scabbia\Loaders\Loader::init("{$tVendorPath}/composer");
 
 // MD # framework initialization
 use Scabbia\Framework\Core;
