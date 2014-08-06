@@ -1,3 +1,4 @@
+<?php /* nothing */ ?>
 <!doctype html>
 <html lang="en">
 <head>
