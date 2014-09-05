@@ -8,8 +8,15 @@ default:
         # - ["{host}", "/(a-z).scabbiafw.com|scabbiafw.com/"]
         # - ["{os}", "/win.*/"]
 
-    sources:
-        - "{basepath}/src/"
+    codepools:
+        - local
+        - core
+
+    autoload:
+        default:
+            - "{basepath}/src/{codepool}/"
+        "ScabbiaTest\\":
+            - "{basepath}/src/{codepool}/ScabbiaTest/"
 
     # events:
     #     preenvironment:

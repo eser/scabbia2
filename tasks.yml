@@ -1,5 +1,12 @@
-sources:
-    - "{basepath}/src/"
+codepools:
+    - local
+    - core
+
+autoload:
+    default:
+        - "{basepath}/src/{codepool}/"
+    "ScabbiaTest\\":
+        - "{basepath}/src/{codepool}/ScabbiaTest/"
 
 tasks:
     generate:
