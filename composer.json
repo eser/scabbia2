@@ -1,8 +1,9 @@
 {
     "name": "scabbiafw/scabbia2",
     "description": "Scabbia2 Standard Package",
-    "type": "library",
+    "type": "project",
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "keywords": [
         "larukedi",
         "scabbia",
@@ -23,17 +24,7 @@
         }
     ],
     "require": {
+        "php": ">=5.6.0",
         "scabbiafw/scabbia2-fw": "dev-master"
-    },
-    "scripts": {
-        "post-create-project-cmd": [
-        ],
-        "post-install-cmd": [
-        ],
-        "post-update-cmd": [
-        ]
-    },
-    "config": {
-        "preferred-install": "dev"
     }
 }
