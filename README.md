@@ -37,7 +37,7 @@ chmod 0777 -R writable
 
 
 ## Requirements
-* PHP 5.4.0+ (http://www.php.net/)
+* PHP 5.6.0+ (http://www.php.net/)
 * Composer Dependency Manager** (http://getcomposer.org/)
 * Scabbia2 PHP Framework** (http://scabbiafw.com/)
 
@@ -47,6 +47,7 @@ chmod 0777 -R writable
 ## Links
 - [Framework Project](//github.com/scabbiafw/scabbia2-fw)
 - [Documentation](http://scabbiafw.com/docs/)
+- [Book](https://www.gitbook.io/book/larukedi/scabbia2-book) (in Turkish)
 - [Twitter](https://twitter.com/scabbiafw)
 - [License Information](LICENSE)
 
