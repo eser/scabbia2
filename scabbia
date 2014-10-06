@@ -1,14 +1,14 @@
 #!/usr/bin/env php
 <?php
 /**
- * Scabbia2 PHP Framework Skeleton Project
+ * Scabbia2 Standard Package
  * http://www.scabbiafw.com/
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * @link        http://github.com/scabbiafw/scabbia2-skel for the canonical source repository
- * @copyright   2010-2013 Scabbia Framework Organization. (http://www.scabbiafw.com/)
+ * @link        http://github.com/scabbiafw/scabbia2 for the canonical source repository
+ * @copyright   2010-2014 Scabbia Framework Organization. (http://www.scabbiafw.com/)
  * @license     http://www.apache.org/licenses/LICENSE-2.0 - Apache License, Version 2.0
  */
 
@@ -17,37 +17,50 @@ if (PHP_SAPI !== "cli") {
     throw new RuntimeException("scabbia only runs under Command Line Interface (CLI).");
 }
 
-if (count($_SERVER["argv"]) <= 1) {
+// MD - determine the paths
+$tBasePath = __DIR__;
+$tVendorPathNotFound = !file_exists("{$tBasePath}/vendor");
+
+// MD - parameters
+$tParameters = array_slice($_SERVER["argv"], 1);
+$tParameterCount = count($tParameters);
+$tParametersUpgradeCommand = ($tParameterCount > 0 && trim($tParameters[0]) === "upgrade");
+
+// MD - check if it needs installation
+if ($tVendorPathNotFound || $tParametersUpgradeCommand) {
+    $tCurrentPath = getcwd();
+
+    chdir($tBasePath);
+
+    $tPhpBinary = "\"" . PHP_BINARY . "\"";
+
+    if (!file_exists("composer.phar")) {
+        passthru("{$tPhpBinary} -r \"eval('?' . '>' . file_get_contents('https://getcomposer.org/installer'));\"");
+	}
+
+	$tComposerCmd = "{$tPhpBinary} composer.phar";
+
+	if ($tVendorPathNotFound) {
+		passthru($tComposerCmd . " install");
+	} else {
+		passthru($tComposerCmd . " update");
+	}
+
+    chdir($tCurrentPath);
+
+    if ($tParametersUpgradeCommand || $tParameterCount === 0) {
+        exit;
+    }
+}
+
+if ($tParameterCount <= 0) {
     throw new RuntimeException("scabbia needs a task to run.");
 }
 
-$tParameters = array_slice($_SERVER["argv"], 1);
-
-if (trim($tParameters[0]) === "upgrade") {
-    $tPhpCmd = "php -dsafe_mode=0";
-
-    if (!file_exists("composer.phar")) {
-        passthru($tPhpCmd . " -r \"eval('?' . '>' . file_get_contents('https://getcomposer.org/installer'));\"");
-	}
-
-	$tComposerCmd = $tPhpCmd . " composer.phar";
-
-	if (file_exists("vendor")) {
-		passthru($tComposerCmd . " update");
-	} else {
-		passthru($tComposerCmd . " install");
-	}
-
-    exit;
-}
-
 // MD # autoloader initialization
-// MD - determine the vendor path
-$tVendorPath = __DIR__ . "/vendor";
-
 // MD - instantiate and register the loader
-require "{$tVendorPath}/scabbiafw/scabbia2-fw/src/Loaders/Loader.php";
-$tLoader = \Scabbia\Loaders\Loader::init("{$tVendorPath}/composer");
+require "{$tBasePath}/vendor/scabbiafw/scabbia2-fw/src/Loaders/Loader.php";
+$tLoader = \Scabbia\Loaders\Loader::init($tBasePath);
 
 // MD # framework initialization
 // TODO Instead of "Tasks" static class, a console application can be created
