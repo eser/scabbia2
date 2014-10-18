@@ -13,13 +13,13 @@ tasks:
         class: "Scabbia\\Generators\\GenerateTask"
         config:
             generators:
-                # - "Scabbia\\Assets\\Generator"
-                - "Scabbia\\CodeCompiler\\Generator"
-                - "Scabbia\\Config\\Generator"
-                - "Scabbia\\Documentor\\Generator"
-                - "Scabbia\\Events\\Generator"
-                - "Scabbia\\Router\\Generator"
-                - "Scabbia\\Views\\Generator"
+                # - "Scabbia\\Assets\\AssetGenerator"
+                - "Scabbia\\Code\\CompileGenerator"
+                - "Scabbia\\Config\\ConfigGenerator"
+                - "Scabbia\\Documentor\\DocumentGenerator"
+                - "Scabbia\\Events\\EventGenerator"
+                - "Scabbia\\Router\\RouteGenerator"
+                - "Scabbia\\Views\\ViewGenerator"
 
     tests:
         class: "Scabbia\\Testing\\TestsTask"
