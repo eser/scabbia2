@@ -16,8 +16,8 @@
 $tBasePath = dirname(__DIR__);
 
 // MD - instantiate and register the loader
-require "{$tBasePath}/vendor/scabbiafw/scabbia2-fw/src/Loaders/Loader.php";
-$tLoader = \Scabbia\Loaders\Loader::init($tBasePath);
+require "{$tBasePath}/vendor/scabbiafw/scabbia2-fw/src/Loader/Loader.php";
+$tLoader = \Scabbia\Loader\Loader::init($tBasePath);
 
 // MD # framework initialization
 use Scabbia\Framework\Core;
