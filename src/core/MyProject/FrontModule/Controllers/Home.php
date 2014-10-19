@@ -40,6 +40,10 @@ class Home extends BaseController
     {
         $this->bind("MyProject\\FrontModule\\Models\\HomeModel");
 
+        $tFiles = get_included_files();
+        echo '<pre>';
+        var_dump($tFiles);
+
         $this->vars->set("moduleName", $this->moduleConfig["fancyName"]);
         $this->vars->set("welcomeText", $this->homeModel->getWelcomeMessage());
 
