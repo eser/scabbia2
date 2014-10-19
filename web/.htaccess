@@ -5,7 +5,7 @@ AddCharset utf-8 .css .js
 	RewriteEngine on
 
 	# Keep people out of framework files and scc data
-	RewriteRule ^([^/]*/)*(\..+|web.config|scabbia|composer.json|composer.lock|var/?|var/.+|src/?|src/.+|vendor/?|^vendor/.+)$ - [NC,F]
+	RewriteRule ^([^/]*/)*(\..+|web.config)$ - [NC,F]
 
 	# Send request via index.php (again, not if its a real file or folder)
 	RewriteCond %{REQUEST_FILENAME} !-f

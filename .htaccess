@@ -1,0 +1,9 @@
+AddDefaultCharset UTF-8
+AddCharset utf-8 .css .js
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+
+	# Keep people out of framework files and scc data
+	RewriteRule ^([^/]*/)*(\..+|web.config|scabbia|composer.json|composer.lock|var/?|var/.+|etc/?|etc/.+|src/?|src/.+|vendor/?|^vendor/.+)$ - [NC,F]
+</IfModule>
