@@ -71,7 +71,7 @@ use Scabbia\Tasks\Tasks;
 Core::init($tLoader);
 
 // MD - read the task definitions from tasks.yml file and cache its content into cache/tasks.yml.php
-Tasks::load("tasks.yml");
+Tasks::load("etc/tasks.yml");
 
 // MD - execute which task is going to run
 $tExitCode = Tasks::execute($tParameters);

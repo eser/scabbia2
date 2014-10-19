@@ -26,7 +26,7 @@ use Scabbia\Framework\Core;
 Core::init($tLoader);
 
 // MD - read the application definitions from project.yml file and cache its content into cache/project.yml.php
-Core::loadProject("project.yml");
+Core::loadProject("etc/project.yml");
 
 // MD - pick which application is going to run
 Core::pickApplication();
