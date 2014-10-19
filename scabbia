@@ -57,22 +57,14 @@ if ($tParameterCount <= 0) {
     throw new RuntimeException("scabbia needs a task to run.");
 }
 
-// MD # autoloader initialization
-// MD - instantiate and register the loader
-require "{$tBasePath}/vendor/scabbiafw/scabbia2-fw/src/Loader/Loader.php";
-$tLoader = \Scabbia\Loader\Loader::init($tBasePath);
-
 // MD # framework initialization
+require "{$tBasePath}/vendor/scabbiafw/scabbia2-fw/src/Loader/Loader.php";
+\Scabbia\Loader\Loader::initFramework($tBasePath, "etc/project.yml");
+
 // TODO Instead of "Tasks" static class, a console application can be created
-use Scabbia\Framework\Core;
-use Scabbia\Tasks\Tasks;
-
-// MD - initializes the autoloader and framework variables.
-Core::init($tLoader);
-
 // MD - read the task definitions from tasks.yml file and cache its content into cache/tasks.yml.php
-Tasks::load("etc/tasks.yml");
+\Scabbia\Tasks\Tasks::load("etc/tasks.yml");
 
 // MD - execute which task is going to run
-$tExitCode = Tasks::execute($tParameters);
+$tExitCode = \Scabbia\Tasks\Tasks::execute($tParameters);
 exit($tExitCode);
