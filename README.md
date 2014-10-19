@@ -30,10 +30,10 @@ php scabbia upgrade
 
 **Step 3:**
 
-Make `writable` directory writable.
+Make `var` directory writable.
 
 ``` bash
-chmod 0777 -R writable
+chmod 0777 -R var
 ```
 
 
