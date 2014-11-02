@@ -17,8 +17,8 @@ $tBasePath = dirname(__DIR__);
 
 // MD - instantiate and register the loader
 require "{$tBasePath}/vendor/scabbiafw/scabbia2-fw/src/Loader/Loader.php";
-$tLoader = \Scabbia\Loader\Loader::initFramework($tBasePath, "etc/project.yml");
-
-// MD # framework initialization
-// MD - run picked application
-\Scabbia\Framework\Core::runApplication();
+\Scabbia\Loader\Loader::load([
+    "basepath" => $tBasePath,
+    "projects" => "etc/project.yml",
+    "run"      => true
+]);

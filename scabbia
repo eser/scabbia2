@@ -36,15 +36,15 @@ if ($tVendorPathNotFound || $tParametersUpgradeCommand) {
 
     if (!file_exists("composer.phar")) {
         passthru("{$tPhpBinary} -r \"eval('?' . '>' . file_get_contents('https://getcomposer.org/installer'));\"");
-	}
+    }
 
-	$tComposerCmd = "{$tPhpBinary} composer.phar";
+    $tComposerCmd = "{$tPhpBinary} composer.phar";
 
-	if ($tVendorPathNotFound) {
-		passthru($tComposerCmd . " install");
-	} else {
-		passthru($tComposerCmd . " update");
-	}
+    if ($tVendorPathNotFound) {
+        passthru($tComposerCmd . " install");
+    } else {
+        passthru($tComposerCmd . " update");
+    }
 
     chdir($tCurrentPath);
 
@@ -59,11 +59,12 @@ if ($tParameterCount <= 0) {
 
 // MD # framework initialization
 require "{$tBasePath}/vendor/scabbiafw/scabbia2-fw/src/Loader/Loader.php";
-\Scabbia\Loader\Loader::initFramework($tBasePath, "etc/project.yml");
-
-// TODO Instead of "Tasks" static class, a console application can be created
-// MD - read the task definitions from tasks.yml file and cache its content into cache/tasks.yml.php
-\Scabbia\Tasks\Tasks::load("etc/tasks.yml");
+\Scabbia\Loader\Loader::load([
+    "basepath" => $tBasePath,
+    "projects" => "etc/project.yml",
+    "tasks"    => "etc/tasks.yml",
+    "run"      => false
+]);
 
 // MD - execute which task is going to run
 $tExitCode = \Scabbia\Tasks\Tasks::execute($tParameters);
