@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  *
  * @link        http://github.com/scabbiafw/scabbia2 for the canonical source repository
- * @copyright   2010-2014 Scabbia Framework Organization. (http://www.scabbiafw.com/)
+ * @copyright   2010-2015 Scabbia Framework Organization. (http://www.scabbiafw.com/)
  * @license     http://www.apache.org/licenses/LICENSE-2.0 - Apache License, Version 2.0
  */
 
@@ -92,7 +92,7 @@ class Home extends BaseController
         // var_dump($tConfig->get());
 
         echo "application configuration:<br />";
-        String::vardump($this->applicationConfig);
+        String::vardump($this->application->config);
         echo "<br />";
 
         echo "module configuration:<br />";
