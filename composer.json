@@ -4,27 +4,53 @@
     "type": "project",
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist"
+    },
     "keywords": [
         "larukedi",
         "scabbia",
         "scabbia2",
         "scabbiafw",
-        "framework",
-        "lightstack",
-        "stack",
+        "standard",
+        "package",
         "skeleton",
-        "standard"
+        "project",
+        "distribution"
     ],
     "homepage": "http://www.scabbiafw.com/",
-    "license": "Apache-2.0",
+    "license": [
+        "Apache-2.0"
+    ],
     "authors": [
         {
             "name": "Scabbia Framework Organization",
-            "email": "contact@scabbiafw.com"
+            "homepage": "http://scabbiafw.com/"
+        },
+        {
+            "name": "Contributors",
+            "homepage": "https://github.com/scabbiafw/scabbia2/blob/master/contributors.md"
         }
     ],
+    "support": {
+        "issues": "https://github.com/scabbiafw/scabbia2/issues",
+        "source": "https://github.com/scabbiafw/scabbia2"
+    },
     "require": {
         "php": ">=5.6.0",
-        "scabbiafw/scabbia2-fw": "dev-master"
+        "scabbiafw/scabbia2-fw": "*"
+    },
+    "require-dev": {
+        "scabbiafw/scabbia2-testing": "*",
+        "squizlabs/php_codesniffer": "2.*"
+    },
+    "suggest": {
+    },
+    "autoload": {
+        "psr-0": {
+            "": [ "src/" ]
+        }
+    },
+    "autoload-dev": {
     }
 }

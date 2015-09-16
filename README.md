@@ -54,7 +54,7 @@ chmod 0777 -R var
 
 
 ## Contributing
-All contributions should be filed on the [scabbiafw/scabbia2](http://github.com/scabbiafw/scabbia2) repository.
+All contributions should be filed on the [scabbiafw/scabbia2](https://github.com/scabbiafw/scabbia2) repository.
 
 * To contribute to code: Fork the repo, push your changes to your fork, and submit a pull request.
 * To report a bug: If something does not work, please report it using GitHub issues.

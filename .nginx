@@ -1,5 +1,0 @@
-charset utf-8;
-
-location ~ /^([^/]*/)*(\..+|web.config|scabbia|composer.json|composer.lock|var/?|var/.+|etc/?|etc/.+|src/?|src/.+|vendor/?|^vendor/.+)$ {
-    return 403;
-}
