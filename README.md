@@ -22,16 +22,17 @@ php -r "readfile('https://getcomposer.org/installer');" | php
 ```
 
 **Step 2:**
+Create a new scabbia2 project under the directory named `project`.
 
 ``` bash
-php composer.phar create-project scabbiafw/scabbia2:dev-master
+php composer.phar create-project scabbiafw/scabbia2:dev-master project
 ```
 
 **Step 3:**
-
-Make `var` directory writable.
+Make `project/var` directory writable.
 
 ``` bash
+cd project
 chmod 0777 -R var
 ```
 
