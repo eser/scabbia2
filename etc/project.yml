@@ -8,16 +8,6 @@ default:
         # - ["{host}", "/(a-z).scabbiafw.com|scabbiafw.com/"]
         # - ["{os}", "/win.*/"]
 
-    codepools:
-        - local
-        - core
-
-    autoload:
-        default:
-            - "{basepath}/src/{codepool}/"
-        "ScabbiaTest\\":
-            - "{basepath}/src/{codepool}/ScabbiaTest/"
-
     # events:
     #     preenvironment:
     #         - "MyProject\\Project::autoexec"
