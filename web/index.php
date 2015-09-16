@@ -11,27 +11,17 @@
  * @license     http://www.apache.org/licenses/LICENSE-2.0 - Apache License, Version 2.0
  */
 
-// MD # autoloader initialization
-// MD - determine the paths
-$tBasePath = dirname(__DIR__);
+require __DIR__ . "/../src/bootstrap.php";
 
-// MD - instantiate and register the loader
-require "{$tBasePath}/vendor/scabbiafw/scabbia2-fw/src/Loader/Loader.php";
+/*
+$tCore = new \Scabbia\Framework\Core();
 
-\Scabbia\Loader\Loader::load(
-    $tBasePath,
-    function ($uLoader) {
+// load project file(s)
+$tCore->loadProject("etc/project.yml");
 
-        $tCore = new \Scabbia\Framework\Core($uLoader);
+// pick an application
+$tCore->pickApplication();
 
-        // load project file(s)
-        $tCore->loadProject("etc/project.yml");
-
-        // pick an application
-        $tCore->pickApplication();
-
-        // run the picked start
-        $tCore->runApplication();
-
-    }
-);
+// run the picked start
+$tCore->runApplication();
+*/
