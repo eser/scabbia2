@@ -1,2 +1,2 @@
 <?php /* nothing */ ?>
-Copyright &copy; 2006-2014 Scabbia Framework
+Copyright &copy; 2006-2015 Scabbia Framework

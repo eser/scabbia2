@@ -92,7 +92,7 @@ class Home extends BaseController
         // var_dump($tConfig->get());
 
         echo "application configuration:<br />";
-        String::vardump($this->applicationConfig);
+        String::vardump($this->application->config);
         echo "<br />";
 
         echo "module configuration:<br />";
