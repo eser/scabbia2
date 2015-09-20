@@ -44,7 +44,7 @@ chmod 0777 -R var
 
 
 ## Links
-- [Documentation](http://scabbiafw.com/docs/)
+- [Documentation](http://docs.scabbiafw.com/)
 - [Twitter](https://twitter.com/scabbiafw)
 - [Contributor List](contributors.md)
 - [License Information](LICENSE)
