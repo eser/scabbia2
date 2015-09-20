@@ -30,4 +30,6 @@ set_error_handler(function ($uCode, $uMessage, $uFile, $uLine) {
 });
 
 // MD - instantiate and register the loader
-require "{$tBasePath}/vendor/autoload.php";
+$tLoader = require "{$tBasePath}/vendor/autoload.php";
+
+return new \Scabbia\Framework\Project($tLoader);

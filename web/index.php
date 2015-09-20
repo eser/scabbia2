@@ -11,17 +11,22 @@
  * @license     http://www.apache.org/licenses/LICENSE-2.0 - Apache License, Version 2.0
  */
 
-require __DIR__ . "/../src/bootstrap.php";
+$tProject = require __DIR__ . "/../src/bootstrap.php";
+
+// load project configuration file(s)
+$tProject->config->add("etc/project.yml");
 
 /*
-$tCore = new \Scabbia\Framework\Core();
-
-// load project file(s)
-$tCore->loadProject("etc/project.yml");
+// pick an application
+$tCore->pickApplication(function () {
+    // ...
+});
 
 // pick an application
-$tCore->pickApplication();
+$tCore->pickEnvironment(function () {
+    // ...
+});
 
-// run the picked start
-$tCore->runApplication();
+// run
+$tCore->run();
 */
