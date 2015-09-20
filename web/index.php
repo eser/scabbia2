@@ -14,7 +14,7 @@
 $tProject = require __DIR__ . "/../src/bootstrap.php";
 
 // load project configuration file(s)
-$tProject->config->add("etc/project.yml");
+$tProject->addConfig(__DIR__ . "/../etc/project.yml");
 
 /*
 // pick an application
