@@ -5,11 +5,11 @@
 [This repository](https://github.com/scabbiafw/scabbia2/) contains the standard package for the framework and its dependencies. It is designed to helps you to jump-start developing projects with the Scabbia2 without setting up a configuration from scratch.
 
 [![Build Status](https://travis-ci.org/scabbiafw/scabbia2.png?branch=master)](https://travis-ci.org/scabbiafw/scabbia2)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/scabbiafw/scabbia2/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/scabbiafw/scabbia2/?branch=master)
 [![Total Downloads](https://poser.pugx.org/scabbiafw/scabbia2/downloads.png)](https://packagist.org/packages/scabbiafw/scabbia2)
 [![Latest Stable Version](https://poser.pugx.org/scabbiafw/scabbia2/v/stable)](https://packagist.org/packages/scabbiafw/scabbia2)
 [![Latest Unstable Version](https://poser.pugx.org/scabbiafw/scabbia2/v/unstable)](https://packagist.org/packages/scabbiafw/scabbia2)
 [![Documentation Status](https://readthedocs.org/projects/scabbia2-documentation/badge/?version=latest)](http://docs.scabbiafw.com/)
-[![License](https://poser.pugx.org/scabbiafw/scabbia2/license.png)](https://packagist.org/packages/scabbiafw/scabbia2)
 
 
 ## Installation
