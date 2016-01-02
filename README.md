@@ -1,15 +1,15 @@
 # Scabbia2 Standard Package
 
-**Scabbia2** is an open source PHP framework project which is currently on planning stage. Keep visiting [project homepage](http://scabbiafw.com/) and [repositories](https://github.com/scabbiafw/) for further updates.
+**Scabbia2** is an open source PHP framework project which is currently on planning stage. Keep visiting [project homepage](https://github.com/eserozvataf/scabbia2) and [repositories](https://github.com/eserozvataf/) for further updates.
 
-[This repository](https://github.com/scabbiafw/scabbia2/) contains the standard package for the framework and its dependencies. It is designed to helps you to jump-start developing projects with the Scabbia2 without setting up a configuration from scratch.
+[This repository](https://github.com/eserozvataf/scabbia2) contains the standard package for the framework and its dependencies. It is designed to helps you to jump-start developing projects with the Scabbia2 without setting up a configuration from scratch.
 
-[![Build Status](https://travis-ci.org/scabbiafw/scabbia2.png?branch=master)](https://travis-ci.org/scabbiafw/scabbia2)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/scabbiafw/scabbia2/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/scabbiafw/scabbia2/?branch=master)
-[![Total Downloads](https://poser.pugx.org/scabbiafw/scabbia2/downloads.png)](https://packagist.org/packages/scabbiafw/scabbia2)
-[![Latest Stable Version](https://poser.pugx.org/scabbiafw/scabbia2/v/stable)](https://packagist.org/packages/scabbiafw/scabbia2)
-[![Latest Unstable Version](https://poser.pugx.org/scabbiafw/scabbia2/v/unstable)](https://packagist.org/packages/scabbiafw/scabbia2)
-[![Documentation Status](https://readthedocs.org/projects/scabbia2-documentation/badge/?version=latest)](http://docs.scabbiafw.com/)
+[![Build Status](https://travis-ci.org/eserozvataf/scabbia2.png?branch=master)](https://travis-ci.org/eserozvataf/scabbia2)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/eserozvataf/scabbia2/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/eserozvataf/scabbia2/?branch=master)
+[![Total Downloads](https://poser.pugx.org/eserozvataf/scabbia2/downloads.png)](https://packagist.org/packages/eserozvataf/scabbia2)
+[![Latest Stable Version](https://poser.pugx.org/eserozvataf/scabbia2/v/stable)](https://packagist.org/packages/eserozvataf/scabbia2)
+[![Latest Unstable Version](https://poser.pugx.org/eserozvataf/scabbia2/v/unstable)](https://packagist.org/packages/eserozvataf/scabbia2)
+[![Documentation Status](https://readthedocs.org/projects/scabbia2-documentation/badge/?version=latest)](https://readthedocs.org/projects/scabbia2-documentation)
 
 
 ## Installation
@@ -26,7 +26,7 @@ php -r "readfile('https://getcomposer.org/installer');" | php
 Create a new scabbia2 project under the directory named `project`.
 
 ``` bash
-php composer.phar create-project scabbiafw/scabbia2:dev-master project
+php composer.phar create-project eserozvataf/scabbia2:dev-master project
 ```
 
 **Step 3:**
@@ -44,14 +44,14 @@ chmod 0777 -R var
 
 
 ## Links
-- [Documentation](http://docs.scabbiafw.com/)
-- [Twitter](https://twitter.com/scabbiafw)
+- [Documentation](https://readthedocs.org/projects/scabbia2-documentation)
+- [Twitter](https://twitter.com/eserozvataf)
 - [Contributor List](contributors.md)
 - [License Information](LICENSE)
 
 
 ## Contributing
-It is publicly open for any contribution. Bugfixes, new features and extra modules are welcome. All contributions should be filed on the [scabbiafw/scabbia2](https://github.com/scabbiafw/scabbia2) repository.
+It is publicly open for any contribution. Bugfixes, new features and extra modules are welcome. All contributions should be filed on the [eserozvataf/scabbia2](https://github.com/eserozvataf/scabbia2) repository.
 
 * To contribute to code: Fork the repo, push your changes to your fork, and submit a pull request.
 * To report a bug: If something does not work, please report it using GitHub issues.

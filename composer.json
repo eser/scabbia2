@@ -1,5 +1,5 @@
 {
-    "name": "scabbiafw/scabbia2",
+    "name": "eserozvataf/scabbia2",
     "description": "Scabbia2 Standard Package",
     "type": "project",
     "minimum-stability": "dev",
@@ -8,7 +8,7 @@
         "preferred-install": "dist"
     },
     "keywords": [
-        "larukedi",
+        "eserozvataf",
         "scabbia",
         "scabbia2",
         "scabbiafw",
@@ -18,30 +18,30 @@
         "project",
         "distribution"
     ],
-    "homepage": "http://www.scabbiafw.com/",
+    "homepage": "https://github.com/eserozvataf/scabbia2",
     "license": [
         "Apache-2.0"
     ],
     "authors": [
         {
-            "name": "Scabbia Framework Organization",
-            "homepage": "http://scabbiafw.com/"
+            "name": "Eser Ozvataf",
+            "homepage": "https://github.com/eserozvataf/scabbia2"
         },
         {
             "name": "Contributors",
-            "homepage": "https://github.com/scabbiafw/scabbia2/blob/master/contributors.md"
+            "homepage": "https://github.com/eserozvataf/scabbia2/blob/master/contributors.md"
         }
     ],
     "support": {
-        "issues": "https://github.com/scabbiafw/scabbia2/issues",
-        "source": "https://github.com/scabbiafw/scabbia2"
+        "issues": "https://github.com/eserozvataf/scabbia2/issues",
+        "source": "https://github.com/eserozvataf/scabbia2"
     },
     "require": {
         "php": ">=5.6.0",
-        "scabbiafw/scabbia2-fw": "*"
+        "eserozvataf/scabbia2-fw": "*"
     },
     "require-dev": {
-        "scabbiafw/scabbia2-testing": "*",
+        "eserozvataf/scabbia2-testing": "*",
         "squizlabs/php_codesniffer": "2.*"
     },
     "suggest": {
